@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Hands Free Scroller</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px;
+      }
+
+      .navbar-fixed-top .brand {
+        font-weight: bold;
+        color: #000;
+        text-shadow: 1px 1px 0 rgba(255,255,255,.125), 0 0 30px rgba(255,255,255,.125);
+      }
+
+      .input-prepend input[class*="span"],
+      .input-append input[class*="span"] {
+        width: auto;
+        display: inline-block;
+      }
+    </style>
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="http://twitter.github.com/bootstrap/assets/ico/favicon.ico">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Hands Free Scroll</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <form class="form-horizontal">
+        <fieldset>
+          <legend>Scroll Values</legend>
+          <div class="control-group">
+            <label class="control-label" for="interval">Scroll Interval</label>
+            <div class="controls">
+              <div class="input-append">
+                  <input class="span1" size="4" id="interval" type="text" value="100"><span class="add-on">ms</span>
+              </div>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="increment">Scroll Increment</label>
+            <div class="controls">
+              <div class="input-append">
+                  <input class="span1" size="4" id="increment" type="text"value="1"><span class="add-on">px</span>
+              </div>
+            </div>
+          </div>      
+        </fieldset>
+
+        <div class="tabbable">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#1" data-toggle="tab">Code</a></li>
+            <li><a href="#2" data-toggle="tab">Preview</a></li>
+            <li><a href="#3" data-toggle="tab">About</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="1">
+              <div class="control-group">
+                <textarea class="input-xlarge" style="width:100%" id="code" rows="3">
+                </textarea>
+              </div>
+              <legend>How Now?</legend>
+              <ol>
+                <li>Bookmark this page</li>
+                <li>Copy the code above</li>
+                <li>Edit the bookmark replacing the bookmark url with the code above</li>
+                <li>Goto desired page, activate bookmark</li>
+                <li>Amazeballs</li>
+              </ol>
+            </div>
+            <div class="tab-pane" id="2">
+              <fieldset>
+                <div class="control-group">
+                  <div class="row">
+                    <iframe class="span12" style="height:100px;border:0;" id="sample" src="sample.html?interval=100&increment=1" ></iframe> 
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <div class="tab-pane" id="3">
+              <fieldset>
+                <div class="control-group">
+                  <div class="row">
+                    <div class="span12">
+                      Want to read hands free?  Perhaps you have anew born that you need to bottlefeed and can't manage the scrolling and the feeding?  This will save you from the monotonay of the late night bottle!
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="http://twitter.github.com/bootstrap/assets/js/jquery.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tab.js"></script>
+    <script type="text/javascript">
+      (function(){
+        var template = "javascript:(function(host){ return { start: function(){ host.scrollBy(0, {{increment}}); host.setTimeout(arguments.callee, {{interval}}) } }; }(this)).start();"
+        var interval = 100;
+        var increment = 1;
+
+        $("#interval").change(function(){
+          interval = this.value;
+          applySettings();
+        })
+
+        $("#increment").change(function(){
+          increment = this.value;
+          applySettings();
+        })
+
+        var applySettings = function(){
+          setTimeout(function(){
+            document.getElementById("code").value = template.replace("{{increment}}", increment).replace("{{interval}}", interval)
+            document.getElementById("sample").src = "sample.html?interval=" + interval + "&increment=" + increment + ""
+          }, 0)
+        }
+
+        applySettings();
+      })()
+    </script>
+  </body>
+</html>

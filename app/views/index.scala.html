@@ -92,7 +92,15 @@
               <fieldset>
                 <div class="control-group">
                   <div class="row">
-                    <iframe class="span12" style="height:100px;border:0;" id="sample" src="@(routes.Application.sample)?interval=100&increment=1" ></iframe> 
+                    <div class="span12">
+                      <a class="btn" id="preview" href="@(routes.Application.sample)?interval=100&increment=1" target="_blank">
+                        <i class="icon-share"></i> View in new window
+                      </a>
+                      Safari iOS dislikes the iframe below.
+                    </div>
+                  </div>
+                  <div class="row">
+                    <iframe class="span12" style="height:100px;border:0; margin-top:20px;" id="sample" src="@(routes.Application.sample)?interval=100&increment=1" ></iframe> 
                   </div>
                 </div>
               </fieldset>
@@ -102,7 +110,7 @@
                 <div class="control-group">
                   <div class="row">
                     <div class="span12">
-                      Want to read hands free?  Perhaps you have anew born that you need to bottlefeed and can't manage the scrolling and the feeding?  This will save you from the monotonay of the late night bottle!
+                      Want to read hands free?  Perhaps you have anew born that you need to bottlefeed and can't manage the scrolling and the feeding?  This will save you from the monotony of the late night bottle!
                     </div>
                   </div>
                 </div>
@@ -116,9 +124,12 @@
     <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tab.js"></script>
     <script type="text/javascript">
       (function(){
-        var template = "javascript:(function(host){ return { start: function(){ host.scrollBy(0, {{increment}}); host.setTimeout(arguments.callee, {{interval}}) } }; }(this)).start();"
-        var interval = 100;
-        var increment = 1;
+        var template = "javascript:(function(host){ return { start: function(){ host.scrollBy(0, {{increment}}); host.setTimeout(arguments.callee, {{interval}}) } }; }(this)).start();",
+            interval = 100,
+            increment = 1,
+            code = document.getElementById("code"),
+            sample = document.getElementById("sample"),
+            link = document.getElementById("preview");
 
         $("#interval").change(function(){
           interval = this.value;
@@ -132,13 +143,26 @@
 
         var applySettings = function(){
           setTimeout(function(){
-            document.getElementById("code").value = template.replace("{{increment}}", increment).replace("{{interval}}", interval)
-            document.getElementById("sample").src = "@(routes.Application.sample)?interval=" + interval + "&increment=" + increment + ""
+            var href = "@(routes.Application.sample)?interval=" + interval + "&increment=" + increment + "";
+            code.value = template.replace("{{increment}}", increment).replace("{{interval}}", interval);
+            sample.src = link.href = href;
           }, 0)
         }
 
         applySettings();
       })()
+    </script>
+
+    <!-- analytics -->
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-19143623-9']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
     </script>
   </body>
 </html>

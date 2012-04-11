@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>HandsFread</title>
+    <title>HandsFread: Hands Free Page Scrolling Bookmarklet</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -35,11 +35,17 @@
   </head>
 
   <body>
+    <!-- fork me -->
+    <a href="https://github.com/kouphax/hands-free-bookmarklet"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub"></a>
 
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <a class="brand" href="/">HandsFread: Hands Free Page Scrolling</a>
+          <div style="margin-top:10px;">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://handsfread.herokuapp.com/" data-via="kouphax">Tweet</a>
+            <g:plusone size="medium"></g:plusone>
+          </div>
         </div>
       </div>
     </div>
@@ -92,15 +98,14 @@
               <fieldset>
                 <div class="control-group">
                   <div class="row">
+                    <iframe class="span12" style="height:100px;border:0; margin-bottom:20px;" id="sample" src="@(routes.Application.sample)?interval=100&increment=1" ></iframe> 
+                  </div>
+                  <div class="row">
                     <div class="span12">
                       <a class="btn" id="preview" href="@(routes.Application.sample)?interval=100&increment=1" target="_blank">
                         <i class="icon-share"></i> View in new window
                       </a>
-                      Safari iOS dislikes the iframe below.
                     </div>
-                  </div>
-                  <div class="row">
-                    <iframe class="span12" style="height:100px;border:0; margin-top:20px;" id="sample" src="@(routes.Application.sample)?interval=100&increment=1" ></iframe> 
                   </div>
                 </div>
               </fieldset>
@@ -110,7 +115,13 @@
                 <div class="control-group">
                   <div class="row">
                     <div class="span12">
-                      Want to read hands free?  Perhaps you have anew born that you need to bottlefeed and can't manage the scrolling and the feeding?  This will save you from the monotony of the late night bottle!
+                      <p>
+                        Want to read hands free?  Perhaps you have anew born that you need to bottlefeed and can't manage the scrolling and the feeding?  This will save you from the monotony of the late night bottle!
+                      </p>
+                      <h2>News</h2>
+                      <p>
+                        <b>11/04/2012</b>: First release.  Mostly desktop only for now, some iOS issues with scrolling etc.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -163,6 +174,18 @@
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
+    </script>
+    <!-- G+ -->
+    <script type="text/javascript">
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+    </script>
+    <!-- twitter-->
+    <script>
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
     </script>
   </body>
 </html>

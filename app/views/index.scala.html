@@ -86,12 +86,17 @@
                 </textarea>
               </div>
               <legend>How Now?</legend>
-              <ol>
+              <div class="row">
+                <div class="span12">
+                  <a href="#" class="btn btn-inverse btn-mini" id="bookmarklet">HandsFread</a>, &larr; drag this to you bookmarks bar, or follow the instructions below
+                </div>
+              </div>
+              <ol style="margin-top:20px">
                 <li>Bookmark this page</li>
                 <li>Copy the code above</li>
                 <li>Edit the bookmark replacing the bookmark url with the code above</li>
                 <li>Goto desired page, activate bookmark</li>
-                <li>Amazeballs</li>
+                <li>Read hands free!</li>
               </ol>
             </div>
             <div class="tab-pane" id="2">
@@ -140,7 +145,8 @@
             increment = 1,
             code = document.getElementById("code"),
             sample = document.getElementById("sample"),
-            link = document.getElementById("preview");
+            link = document.getElementById("preview"),
+            bookmarklet = document.getElementById("bookmarklet");
 
         $("#interval").change(function(){
           interval = this.value;
@@ -155,7 +161,7 @@
         var applySettings = function(){
           setTimeout(function(){
             var href = "@(routes.Application.sample)?interval=" + interval + "&increment=" + increment + "";
-            code.value = template.replace("{{increment}}", increment).replace("{{interval}}", interval);
+            code.value = bookmarklet.href = template.replace("{{increment}}", increment).replace("{{interval}}", interval);
             sample.src = link.href = href;
           }, 0)
         }

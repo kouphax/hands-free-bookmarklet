@@ -138,9 +138,9 @@
     </div>
     <script src="http://twitter.github.com/bootstrap/assets/js/jquery.js"></script>
     <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tab.js"></script>
-    <script type="text/javascript">
+    <script>
       (function(){
-        var template = "javascript:(function(host){ return { start: function(){ host.scrollBy(0, {{increment}}); host.setTimeout(arguments.callee, {{interval}}) } }; }(this)).start();",
+        var template = "javascript:setInterval(function(s){scrollBy(0,s||{{increment}})},{{interval}})",
             interval = 100,
             increment = 1,
             code = document.getElementById("code"),
@@ -171,7 +171,7 @@
     </script>
 
     <!-- analytics -->
-    <script type="text/javascript">
+    <script>
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-19143623-9']);
       _gaq.push(['_trackPageview']);
@@ -182,7 +182,7 @@
       })();
     </script>
     <!-- G+ -->
-    <script type="text/javascript">
+    <script>
       (function() {
         var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
         po.src = 'https://apis.google.com/js/plusone.js';

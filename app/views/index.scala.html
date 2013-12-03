@@ -6,144 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
-    <style>
-      body {
-        padding-top: 60px;
-      }
 
-      .navbar-fixed-top .brand {
-        font-weight: bold;
-        color: #000;
-        text-shadow: 1px 1px 0 rgba(255,255,255,.125), 0 0 30px rgba(255,255,255,.125);
-      }
 
-      .input-prepend input[class*="span"],
-      .input-append input[class*="span"] {
-        width: auto;
-        display: inline-block;
-      }
-    </style>
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <link rel="shortcut icon" href="http://twitter.github.com/bootstrap/assets/ico/favicon.ico">
   </head>
 
   <body>
     <!-- fork me -->
     <a href="https://github.com/kouphax/hands-free-bookmarklet"><img style="z-index:9999;position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub"></a>
 
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="/">HandsFread: Hands Free Page Scrolling</a>
-          <div style="margin-top:10px;">
-            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://handsfread.herokuapp.com/" data-via="kouphax">Tweet</a>
-            <g:plusone size="medium"></g:plusone>
-          </div>
-        </div>
-      </div>
-    </div>
+    <h1>HandsFread: Hands Free Page Scrolling</h1>
+
+    <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://handsfread.herokuapp.com/" data-via="kouphax">Tweet</a>
+
+
 
     <div class="container">
 
       <form class="form-horizontal">
-        <fieldset>
+        <fieldset style="float:left; width:200px;">
           <legend>Scroll Values</legend>
-          <div class="control-group">
-            <label class="control-label" for="interval">Scroll Interval</label>
-            <div class="controls">
-              <div class="input-append">
-                  <input class="span1" size="4" id="interval" type="text" value="100"><span class="add-on">ms</span>
-              </div>
-            </div>
+          <div class="input-append">
+              <input class="span1" size="4" id="interval" type="text" value="100"><span class="add-on">ms</span>
           </div>
-          <div class="control-group">
-            <label class="control-label" for="increment">Scroll Increment</label>
-            <div class="controls">
-              <div class="input-append">
-                  <input class="span1" size="4" id="increment" type="text"value="1"><span class="add-on">px</span>
-              </div>
-            </div>
-          </div>      
-        </fieldset>
 
-        <div class="tabbable">
-          <ul class="nav nav-tabs">
-            <li class="active"><a href="#1" data-toggle="tab">Code</a></li>
-            <li><a href="#2" data-toggle="tab">Preview</a></li>
-            <li><a href="#3" data-toggle="tab">About</a></li>
-          </ul>
-          <div class="tab-content">
-            <div class="tab-pane active" id="1">
-              <div class="control-group">
-                <textarea class="input-xlarge" style="width:100%" id="code" rows="3">
-                </textarea>
-              </div>
-              <legend>How Now?</legend>
-              <div class="row">
-                <div class="span12">
-                  <a href="#" class="btn btn-inverse btn-mini" id="bookmarklet">HandsFread</a>, &larr; drag this to you bookmarks bar, or follow the instructions below
-                </div>
-              </div>
-              <ol style="margin-top:20px">
-                <li>Bookmark this page</li>
-                <li>Copy the code above</li>
-                <li>Edit the bookmark replacing the bookmark url with the code above</li>
-                <li>Goto desired page, activate bookmark</li>
-                <li>Read hands free!</li>
-              </ol>
-            </div>
-            <div class="tab-pane" id="2">
-              <fieldset>
-                <div class="control-group">
-                  <div class="row">
-                    <iframe class="span12" style="height:100px;border:0; margin-bottom:20px;" id="sample" src="@(routes.Application.sample)?interval=100&increment=1" ></iframe> 
-                  </div>
-                  <div class="row">
-                    <div class="span12">
-                      <a class="btn" id="preview" href="@(routes.Application.sample)?interval=100&increment=1" target="_blank">
-                        <i class="icon-share"></i> View in new window
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </fieldset>
-            </div>
-            <div class="tab-pane" id="3">
-              <fieldset>
-                <div class="control-group">
-                  <div class="row">
-                    <div class="span12">
-                      <p>
-                        Want to read hands free?  Perhaps you have a newborn that you need to bottlefeed and can't manage the scrolling and the feeding?  This will save you from the monotony of the late night bottle!
-                      </p>
-                      <h2>News</h2>
-                      <p>
-                        <b>11/04/2012</b>: First release.  Mostly desktop only for now, some iOS issues with scrolling etc.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </fieldset>
-            </div>
+          <div class="input-append">
+              <input class="span1" size="4" id="increment" type="text"value="1"><span class="add-on">px</span>
+          </div>
+        </fieldset>
+        <div class="style:float:left">
+          <div class="row">
+            <iframe class="span12" style="height:100px;border:0; margin-bottom:20px;" id="sample" src="@(routes.Application.sample)?interval=100&increment=1" ></iframe>
+          <a class="btn" id="preview" href="@(routes.Application.sample)?interval=100&increment=1" target="_blank">
+            <i class="icon-share"></i> View in new window
+          </a>
+
           </div>
         </div>
+        <h2>How Now?</h2>
+        <div>
+          <a href="#" class="btn btn-inverse btn-mini" id="bookmarklet">HandsFread</a>, &larr; drag this to you bookmarks bar, or follow the instructions below to customise
+        </div>
+        <ol style="margin-top:20px">
+          <li>Bookmark this page</li>
+          <li>Copy the code above (after tinkering with the value until you are happy)</li>
+          <li>Edit the bookmark replacing the bookmark url with the code above</li>
+          <li>Goto desired page, activate bookmark</li>
+          <li>Read hands free!</li>
+        </ol>
+
+
       </form>
     </div>
-    <script src="http://twitter.github.com/bootstrap/assets/js/jquery.js"></script>
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tab.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
     <script>
       (function(){
         var template = "javascript:setInterval(function(s){scrollBy(0,s||{{increment}})},{{interval}})",
             interval = 100,
             increment = 1,
-            code = document.getElementById("code"),
             sample = document.getElementById("sample"),
             link = document.getElementById("preview"),
             bookmarklet = document.getElementById("bookmarklet");
@@ -161,7 +80,6 @@
         var applySettings = function(){
           setTimeout(function(){
             var href = "@(routes.Application.sample)?interval=" + interval + "&increment=" + increment + "";
-            code.value = bookmarklet.href = template.replace("{{increment}}", increment).replace("{{interval}}", interval);
             sample.src = link.href = href;
           }, 0)
         }
